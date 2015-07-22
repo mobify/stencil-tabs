@@ -1,0 +1,30 @@
+// tabs
+// ===
+
+// Configurable Variables
+// ---
+
+$tabs__variable-name: true !default;
+
+
+// Dependencies
+// ---
+
+@import 'stencil-variables/variables';
+@import 'level/level';
+
+
+// Tabs root
+// ---
+
+.c-tabs {
+    // Your component styles go here
+}
+
+
+// Tabs sub-component
+// ---
+
+.c-tabs__sub-component {
+    // Your component styles go here
+}

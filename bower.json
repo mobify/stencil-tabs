@@ -1,0 +1,37 @@
+{
+  "name": "stencil-tabs",
+  "description": "A tabbed UI control for Mobify’s AdaptiveJS framework",
+  "authors": [
+    "Mobify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mobify/stencil-tabs.git"
+  },
+  "keywords": [
+    "mobify",
+    "components",
+    "patterns"
+  ],
+  "license": "MIT",
+  "main": [
+    "tabs.dust"
+  ],
+  "ignore": [
+    ".editorconfig",
+    ".gitignore",
+    "package.json",
+    "Gruntfile.js",
+    "Gemfile",
+    "Gemfile.lock",
+    "tests"
+  ],
+  "dependencies": {
+    "stencil-variables": "mobify/stencil-variables#*",
+    "level": ">=0.1.0",
+    "spline": "~1.0.1"
+  },
+  "devDependencies": {
+      "stencil-spec": "mobify/stencil-spec#dev"
+  }
+}

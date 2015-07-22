@@ -1,0 +1,3 @@
+<div {?id}id="{.}"{/id} class="c-tabs {class}" {?role}role="{.}"{/role} data-adaptivejs-component="stencil-tabs">
+    Component stuff goes here!
+</div>
