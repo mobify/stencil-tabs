@@ -1,0 +1,5 @@
+<li role="presentation">
+    <a class="c-tabs__tab {class}" role="tab">
+        {body}
+    </a>
+</li>

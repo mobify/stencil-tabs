@@ -22,9 +22,21 @@ $tabs__variable-name: true !default;
 }
 
 
-// Tabs sub-component
+// Tab
 // ---
 
-.c-tabs__sub-component {
-    // Your component styles go here
+.c-tabs__tab {
+    &.c--is-selected {
+        color: red;
+    }
+}
+
+
+// Tabpane
+// ---
+
+.c-tabs__pane {
+    &.c--is-selected {
+        color: red;
+    }
 }

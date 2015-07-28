@@ -10,7 +10,9 @@
     "url": "http://github.com/mobify/stencil-tabs.git"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^2.1.4"
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-autoprefixer": "2.0.0",
