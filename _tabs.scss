@@ -17,11 +17,7 @@ $tabs__bg-color: #fff !default;
 // Tabs root
 // ---
 
-.c-tabs {
-    display: block;
-    margin: 0;
-    padding: 0;
-}
+.c-tabs {}
 
 
 // Tab strip
@@ -68,12 +64,12 @@ $tabs__bg-color: #fff !default;
 
     &.c--is-selected {
         z-index: 10;
-    }
 
-    &.c--is-selected > a {
-        background: $tabs__bg-color;
-        border-color: $border-color;
-        border-width: 1px 1px 0 1px;
+        > a {
+            background: $tabs__bg-color;
+            border-color: $border-color;
+            border-width: 1px 1px 0 1px;
+        }
     }
 }
 
