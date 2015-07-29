@@ -37,11 +37,14 @@ define(['$'], function($) {
         this.$tabs.each(function(i, tab) {
             var tabId = 'stencil-tab-' + self.instanceId + '.' + i;
             var paneId = 'stencil-tabpane-' + self.instanceId + '.' + i;
+            var $tab = $(tab);
+            var $tabAnchor = $(tab).find('a');
 
-            $(tab).attr({
+            $tabAnchor.attr({
                 'id': tabId,
+                'href': '#' + paneId,
                 'aria-controls': paneId,
-                'tabindex': '0',
+                'tabindex': '-1',
                 'aria-selected': 'false',
             });
 
@@ -64,19 +67,25 @@ define(['$'], function($) {
             return;
         }
 
-        this.$tabs.eq(this.selectedIndex).attr({
-            'tabindex': '-1',
-            'aria-selected': 'false',
-        }).removeClass('c--is-selected');
+        this.$tabs.eq(this.selectedIndex)
+            .removeClass('c--is-selected')
+            .find('a')
+            .attr({
+                'tabindex': '-1',
+                'aria-selected': 'false',
+            });
 
         this.$panes.eq(this.selectedIndex).attr({
             'aria-hidden': 'true',
         }).removeClass('c--is-selected');
 
-        this.$tabs.eq(index).attr({
-            'tabindex': '0',
-            'aria-selected': 'true',
-        }).addClass('c--is-selected');
+        this.$tabs.eq(index)
+            .addClass('c--is-selected')
+            .find('a')
+            .attr({
+                'tabindex': '0',
+                'aria-selected': 'true',
+            });
 
         this.$panes.eq(index)
             .removeAttr('aria-hidden')

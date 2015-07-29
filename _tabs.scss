@@ -4,7 +4,7 @@
 // Configurable Variables
 // ---
 
-$tabs__variable-name: true !default;
+$tabs__bg-color: #fff !default;
 
 
 // Dependencies
@@ -18,7 +18,31 @@ $tabs__variable-name: true !default;
 // ---
 
 .c-tabs {
-    // Your component styles go here
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+
+// Tab strip
+// ---
+
+.c-tabs__strip {
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: 0 $unit*0.5;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid $border-color;
+    }
 }
 
 
@@ -26,8 +50,30 @@ $tabs__variable-name: true !default;
 // ---
 
 .c-tabs__tab {
+    position: relative;
+    display: block;
+    flex: 1;
+    width: 100%;
+
+    > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: $tap-size;
+        padding: $unit*0.5 $unit;
+        border: solid transparent;
+        outline: none;
+        text-decoration: none;
+    }
+
     &.c--is-selected {
-        color: red;
+        z-index: 10;
+    }
+
+    &.c--is-selected > a {
+        background: $tabs__bg-color;
+        border-color: $border-color;
+        border-width: 1px 1px 0 1px;
     }
 }
 
@@ -36,7 +82,11 @@ $tabs__variable-name: true !default;
 // ---
 
 .c-tabs__pane {
+    display: none;
+    background: $tabs__bg-color;
+    padding: $unit*2 $unit*1.5;
+
     &.c--is-selected {
-        color: red;
+        display: block;
     }
 }
