@@ -5,6 +5,10 @@
 // ---
 
 $tabs__bg-color: #fff !default;
+$tabs__border: 1px solid $border-color !default;
+$tabs__strip-padding: 0 $unit*0.5 !default;
+$tabs__link-padding: $unit*0.5 $unit !default;
+$tabs__pane-padding: $unit*2 $unit*1.5 !default;
 
 
 // Dependencies
@@ -27,17 +31,20 @@ $tabs__bg-color: #fff !default;
     position: relative;
     display: flex;
     margin: 0;
-    padding: 0;
-    list-style: none;
-    padding: 0 $unit*0.5;
+    padding: $tabs__strip-padding;
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        border-top: 1px solid $border-color;
+    list-style: none;
+
+    @if $tabs__border == 0 && $tabs__border == none {
+    } @else {
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            border-top: $tabs__border;
+        }
     }
 }
 
@@ -51,25 +58,32 @@ $tabs__bg-color: #fff !default;
     flex: 1;
     width: 100%;
 
-    > a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: $tap-size;
-        padding: $unit*0.5 $unit;
-        border: solid transparent;
-        text-decoration: none;
-    }
-
     &.c--is-selected {
         z-index: 10;
-
-        > a {
-            background: $tabs__bg-color;
-            border-color: $border-color;
-            border-width: 1px 1px 0 1px;
-        }
     }
+}
+
+
+// Links
+// ---
+
+.c-tabs__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $tap-size;
+    padding: $tabs__link-padding;
+
+    background: $tabs__bg-color;
+    border: solid transparent;
+
+    @if $tabs__border == 0 && $tabs__border == none {
+    } @else {
+        border-color: $border-color;
+        border-width: 1px 1px 0 1px;
+    }
+
+    text-decoration: none;
 }
 
 
@@ -79,7 +93,7 @@ $tabs__bg-color: #fff !default;
 .c-tabs__pane {
     display: none;
     background: $tabs__bg-color;
-    padding: $unit*2 $unit*1.5;
+    padding: $tabs__pane-padding;
 
     &.c--is-selected {
         display: block;
