@@ -4,7 +4,11 @@
 // Configurable Variables
 // ---
 
-$tabs__variable-name: true !default;
+$tabs__bg-color: #fff !default;
+$tabs__border: 1px solid $border-color !default;
+$tabs__strip-padding: 0 $unit*0.5 !default;
+$tabs__link-padding: $unit*0.5 $unit !default;
+$tabs__pane-padding: $unit*2 $unit*1.5 !default;
 
 
 // Dependencies
@@ -17,14 +21,81 @@ $tabs__variable-name: true !default;
 // Tabs root
 // ---
 
-.c-tabs {
-    // Your component styles go here
+.c-tabs {}
+
+
+// Tab strip
+// ---
+
+.c-tabs__strip {
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: $tabs__strip-padding;
+
+    list-style: none;
+
+    @if $tabs__border == 0 && $tabs__border == none {
+    } @else {
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            border-top: $tabs__border;
+        }
+    }
 }
 
 
-// Tabs sub-component
+// Tab
 // ---
 
-.c-tabs__sub-component {
-    // Your component styles go here
+.c-tabs__tab {
+    position: relative;
+    display: block;
+    flex: 1;
+    width: 100%;
+
+    &.c--is-selected {
+        z-index: 10;
+    }
+}
+
+
+// Links
+// ---
+
+.c-tabs__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $tap-size;
+    padding: $tabs__link-padding;
+
+    background: $tabs__bg-color;
+    border: solid transparent;
+
+    @if $tabs__border == 0 && $tabs__border == none {
+    } @else {
+        border-color: $border-color;
+        border-width: 1px 1px 0 1px;
+    }
+
+    text-decoration: none;
+}
+
+
+// Tabpane
+// ---
+
+.c-tabs__pane {
+    display: none;
+    background: $tabs__bg-color;
+    padding: $tabs__pane-padding;
+
+    &.c--is-selected {
+        display: block;
+    }
 }

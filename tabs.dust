@@ -1,3 +1,23 @@
-<div {?id}id="{.}"{/id} class="c-tabs {class}" {?role}role="{.}"{/role} data-adaptivejs-component="stencil-tabs">
-    Component stuff goes here!
+<div class="c-tabs {class}"
+    {?id}id="{id}"{/id}
+    {?selectedIndex}data-selected-index="{selectedIndex}"{/selectedIndex}
+    data-adaptivejs-component="stencil-tabs"
+>
+    <ol class="c-tabs__strip">
+        {?tabStrip}
+            {tabStrip}
+        {:else}
+            {#tabs}
+                {@c-tabs__tab}{label}{/c-tabs__tab}
+            {/tabs}
+        {/tabStrip}
+    </ol>
+
+    {?body}
+        {body}
+    {:else}
+        {#panes}
+            {@c-tabs__pane}{contents}{/c-tabs__pane}
+        {/panes}
+    {/body}
 </div>

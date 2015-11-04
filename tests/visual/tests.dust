@@ -4,8 +4,41 @@
 
 {@c-spec for="Tabs Component" repository=repo}
     {@c-spec__test describe=".c-tabs"}
-        {@c-spec__case expect="Should have feature A"}
-            {@c-tabs /}
+        {@c-spec__case expect="Should render tabs using the shorthand helper"}
+
+            {@c-tabs tabs=tabs panes=sections /}
+
+        {/c-spec__case}
+
+        {@c-spec__case expect="Should render tabs using the fully expanded helper"}
+
+            {@c-tabs}
+            {:tabStrip}
+                {#tabs}
+                    {@c-tabs__tab}{label}{/c-tabs__tab}
+                {/tabs}
+            {:body}
+                {#sections}
+                    {@c-tabs__pane}{contents}{/c-tabs__pane}
+                {/sections}
+            {/c-tabs}
+
+        {/c-spec__case}
+
+        {@c-spec__case expect="Should render tabs using mixed helper"}
+
+            {@c-tabs tabs=tabs}
+                {#sections}
+                    {@c-tabs__pane}{contents}{/c-tabs__pane}
+                {/sections}
+            {/c-tabs}
+
+        {/c-spec__case}
+
+        {@c-spec__case expect="Should default to the second tab selected"}
+
+            {@c-tabs tabs=tabs panes=sections selectedIndex="1" /}
+
         {/c-spec__case}
     {/c-spec__test}
 {/c-spec}
