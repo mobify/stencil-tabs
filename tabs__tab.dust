@@ -1,4 +1,4 @@
-<li class="c-tabs__tab {class}" role="presentation">
+<li class="c-tabs__tab {class}" {?id}id="{id}"{/id} role="presentation">
     <a class="c-tabs__link {linkClass}" role="tab">
         {body}
     </a>
