@@ -56,6 +56,8 @@ define(['$'], function($) {
         });
 
         this.$el.on('click', '.c-tabs__tab', function(event) {
+            event.preventDefault;
+
             self.select(self.$tabs.index(this));
         });
 
